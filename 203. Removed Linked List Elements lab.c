@@ -6,29 +6,28 @@
  * };
  */
 struct ListNode* removeElements(struct ListNode* head, int val) {
-    // Handle the case where the head node itself contains val
+
     while (head != NULL && head->val == val) {
         struct ListNode* temp = head;
         head = head->next;
         free(temp);
     }
 
-    // Traverse the list
+    
     struct ListNode* current = head;
     while (current != NULL && current->next != NULL) {
         if (current->next->val == val) {
             struct ListNode* temp = current->next;
-            current->next = current->next->next; // Skip the node
-            free(temp); // Free memory
+            current->next = current->next->next; 
+            free(temp); 
         } else {
-            current = current->next; // Move forward
+            current = current->next; 
         }
     }
 
     return head;
 }
 
-// Helper function to create a new node
 struct ListNode* createNode(int val) {
     struct ListNode* newNode = (struct ListNode*)malloc(sizeof(struct ListNode));
     newNode->val = val;
@@ -36,7 +35,6 @@ struct ListNode* createNode(int val) {
     return newNode;
 }
 
-// Helper function to print the linked list
 void printList(struct ListNode* head) {
     while (head != NULL) {
         printf("%d -> ", head->val);
@@ -45,9 +43,7 @@ void printList(struct ListNode* head) {
     printf("NULL\n");
 }
 
-// Test the function
 int main() {
-    // Create linked list: 1 -> 2 -> 6 -> 3 -> 4 -> 5 -> 6
     struct ListNode* head = createNode(1);
     head->next = createNode(2);
     head->next->next = createNode(6);
