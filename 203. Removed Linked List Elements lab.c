@@ -43,23 +43,3 @@ void printList(struct ListNode* head) {
     printf("NULL\n");
 }
 
-int main() {
-    struct ListNode* head = createNode(1);
-    head->next = createNode(2);
-    head->next->next = createNode(6);
-    head->next->next->next = createNode(3);
-    head->next->next->next->next = createNode(4);
-    head->next->next->next->next->next = createNode(5);
-    head->next->next->next->next->next->next = createNode(6);
-
-    printf("Original List:\n");
-    printList(head);
-
-    int valToRemove = 6;
-    head = removeElements(head, valToRemove);
-
-    printf("Updated List after removing %d:\n", valToRemove);
-    printList(head);
-
-    return 0;
-}
