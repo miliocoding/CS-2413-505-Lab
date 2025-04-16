@@ -14,16 +14,16 @@ void inorderTraversalHelper(struct TreeNode* root, int* result, int* returnSize)
     if (root == NULL) {
         return;
     }
-    inorderTraversalHelper(root->left, result, returnSize); // Traverse the left subtree
-    result[(*returnSize)++] = root->val; // Add the current node value
-    inorderTraversalHelper(root->right, result, returnSize); // Traverse the right subtree
+    inorderTraversalHelper(root->left, result, returnSize); 
+    result[(*returnSize)++] = root->val; 
+    inorderTraversalHelper(root->right, result, returnSize); 
 }
 
 int* inorderTraversal(struct TreeNode* root, int* returnSize) {
     *returnSize = 0;
-    int* result = (int*)malloc(100 * sizeof(int)); // Allocate memory for result array
+    int* result = (int*)malloc(100 * sizeof(int)); 
     if (result == NULL) {
-        return NULL; // Handle allocation failure
+        return NULL; 
     }
     inorderTraversalHelper(root, result, returnSize);
     return result;
