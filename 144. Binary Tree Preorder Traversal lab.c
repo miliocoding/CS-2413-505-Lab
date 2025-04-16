@@ -14,16 +14,16 @@ void preorderTraversalHelper(struct TreeNode* root, int* result, int* returnSize
     if (root == NULL) {
         return;
     }
-    result[(*returnSize)++] = root->val; // Add the current node value
-    preorderTraversalHelper(root->left, result, returnSize); // Traverse the left subtree
-    preorderTraversalHelper(root->right, result, returnSize); // Traverse the right subtree
+    result[(*returnSize)++] = root->val; 
+    preorderTraversalHelper(root->left, result, returnSize); 
+    preorderTraversalHelper(root->right, result, returnSize); 
 }
 
 int* preorderTraversal(struct TreeNode* root, int* returnSize) {
     *returnSize = 0;
-    int* result = (int*)malloc(100 * sizeof(int)); // Allocate memory for result array
+    int* result = (int*)malloc(100 * sizeof(int)); 
     if (result == NULL) {
-        return NULL; // Handle allocation failure
+        return NULL;
     }
     preorderTraversalHelper(root, result, returnSize);
     return result;
